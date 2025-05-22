@@ -1,0 +1,27 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+    display: flex;
+    align-items: center;
+    margin-left: 450px;
+    
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    border-style: hidden;
+}
+
+li {
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Debug - Banco</title>
+    <link rel="stylesheet" href="/static/css/debug.css">
+</head>
+<body>
+    <h1>Debug - Banco de Dados</h1>
+    <ul>
+        {% for r in receitas %}
+            <li><strong>ID:</strong> {{ r.id }} - <strong>Nome:</strong> {{ r.nome }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
