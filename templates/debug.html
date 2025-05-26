@@ -1,16 +1,50 @@
+<!-- templates/debug.html -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Debug - Banco</title>
-    <link rel="stylesheet" href="/static/css/debug.css">
+    <title>Debug - Banco de Dados</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #aaa;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #eee;
+        }
+    </style>
 </head>
 <body>
-    <h1>Debug - Banco de Dados</h1>
-    <ul>
-        {% for r in receitas %}
-            <li><strong>ID:</strong> {{ r.id }} - <strong>Nome:</strong> {{ r.nome }}</li>
-        {% endfor %}
-    </ul>
+    <h1>Receitas no Banco de Dados</h1>
+    {% if receitas %}
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Tipo</th>
+                <th>Origem</th>
+                <th>Ingredientes</th>
+                <th>Modo de Preparo</th>
+            </tr>
+            {% for receita in receitas %}
+            <tr>
+                <td>{{ receita.id }}</td>
+                <td>{{ receita.nome }}</td>
+                <td>{{ receita.tipo }}</td>
+                <td>{{ receita.origem }}</td>
+                <td>{{ receita.ingredientes }}</td>
+                <td>{{ receita.modo_preparo }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>Nenhuma receita cadastrada.</p>
+    {% endif %}
 </body>
 </html>
