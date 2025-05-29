@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    width: 100%;
+    max-width: 400px;
+    overflow: hidden;
+}
+
+.icon {
+    background-color: #e63946;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.icon img {
+    width: 80px;
+    filter: invert(1);
+}
+
+.icon h1 {
+    margin-top: 15px;
+    color: white;
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+.form {
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.select-user {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    font-weight: 600;
+}
+
+.select-user label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: #e63946; 
+}
+
+.select-user input[type="radio"] {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    transition: border-color 0.3s, background-color 0.3s;
+    position: relative;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.select-user input[type="radio"]::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background-color: #e63946;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: transform 0.2s ease-in-out;
+}
+
+.select-user input[type="radio"]:checked {
+    border-color: #e63946;
+}
+
+.select-user input[type="radio"]:checked::before {
+    transform: scale(1);
+}
+
+.select-user input[type="radio"]:hover {
+    border-color: #e63946;
+    box-shadow: 0 0 5px rgba(230, 57, 70, 0.4);
+    transition: box-shadow 0.2s ease;
+}
+
+.admin-fields {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: #e63946;
+}
+
+.password-wrapper {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 60%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.toggle-password img {
+    width: 20px;
+    height: 20px;
+}
+
+.btn-link {
+    display: inline-block;
+    width: 100%;
+    padding: 18px 30px;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    background: linear-gradient(135deg, #e63946, #ff4e50);
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0 10px 20px rgba(230, 57, 70, 0.4);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 150%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.15);
+    transform: skewX(-25deg);
+    z-index: 0;
+    transition: left 0.5s;
+}
+
+.btn-link:hover::before {
+    left: 125%;
+}
+
+.btn-link:hover {
+    transform: scale(1.03);
+    background: linear-gradient(135deg, #ff1e3c, #e63946);
+    box-shadow: 0 15px 25px rgba(230, 57, 70, 0.6);
+}
+
+@media (max-width: 480px) {
+    .grid {
+        border-radius: 0;
+        height: 100vh;
+        box-shadow: none;
+    }
+
+    .icon {
+        padding: 30px 10px;
+    }
+
+    .form {
+        padding: 20px 15px;
+        gap: 12px;
+    }
+
+    .btn-link {
+        font-size: 1rem;
+        padding: 14px 20px;
+    }
+
+    .select-user {
+        gap: 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+}
