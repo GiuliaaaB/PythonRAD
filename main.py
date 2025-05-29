@@ -7,15 +7,12 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'chave_secreta_para_sessoes'
 
-# Banco de dados
 db = SQLAlchemy(app)
 
-# Login Manager
 login_manager = LoginManager()
 login_manager.login_view = "login"
 login_manager.init_app(app)
 
-# Modelos
 class Receita(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     nome = db.Column(db.String, nullable=False)
@@ -41,7 +38,6 @@ class User(UserMixin, db.Model):
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-# Criar tabelas
 with app.app_context():
     db.create_all()
     if not User.query.filter_by(username="admin").first():
@@ -49,7 +45,6 @@ with app.app_context():
         db.session.add(admin)
         db.session.commit()
 
-# 🚨 Rota principal agora faz o login
 @app.route("/", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -74,7 +69,7 @@ def login():
             else:
                 return "Login inválido ou não autorizado."
 
-    return render_template("index.html")  # Sua página de login
+    return render_template("index.html")  
 
 @app.route("/logout")
 @login_required
@@ -152,13 +147,6 @@ def atualizar(id):
             return redirect(url_for("lista"))
 
     return render_template("atualizar.html", receita=receita)
-
-@app.route("/debug-dados", methods=["GET", "POST"])
-@login_required
-def debug_dados():
-    receitas = Receita.query.all()
-    return render_template("debug.html", receitas=receitas)
-
 
 if __name__ == "__main__":
     app.run(debug=True)
