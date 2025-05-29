@@ -3,35 +3,22 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/debug.css">
+    <link rel="shortcut icon" href="/static/imagens/bancodedados.svg" type="image/x-icon" />
     <title>Banco de Dados</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            margin-top: 20px;
-        }
-        th, td {
-            border: 1px solid #aaa;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #eee;
-        }
-    </style>
 </head>
 <body>
     <h1>Receitas no Banco de Dados</h1>
     {% if receitas %}
         <table>
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Tipo</th>
-                <th>Origem</th>
-                <th>Ingredientes</th>
-                <th>Modo de Preparo</th>
-            </tr>
+        <tr>
+            <td data-label="ID">{{ receita.id }}</td>
+            <td data-label="Nome">{{ receita.nome }}</td>
+            <td data-label="Tipo">{{ receita.tipo }}</td>
+            <td data-label="Origem">{{ receita.origem }}</td>
+            <td data-label="Ingredientes">{{ receita.ingredientes }}</td>
+            <td data-label="Modo de Preparo">{{ receita.modo_preparo }}</td>
+        </tr>
             {% for receita in receitas %}
             <tr>
                 <td>{{ receita.id }}</td>
