@@ -4,13 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="/static/css/home.css">
-    <link rel="shortcut icon" href="/static/imagens/lista.png" type="image/x-icon" />
-    <script>
-    function mostrarLoginAdmin() {
-        document.getElementById('admin-login').style.display = 'block';
-    }
-    </script>
+    <link rel="stylesheet" href="/static/css/login.css">
 </head>
 <body>
     <div class="grid">
@@ -18,27 +12,29 @@
             <img src="/static/imagens/icon.svg" alt="Login">
             <h1>Pronto(a) para começar?</h1>
         </div>
-
-        <div class="button">
-            <!-- Entrar como visitante -->
-            <form action="{{ url_for('login') }}" method="POST">
-                <input type="hidden" name="user_type" value="visitor">
-                <button type="submit" class="btn-link">Entrar como Visitante</button>
-            </form>            
-
-            <br>
-
-            <!-- Botão para exibir login de admin -->
-            <button onclick="mostrarLoginAdmin()" class="btn-link" style="margin-top: 10px;">Entrar como Admin</button>
-
-            <!-- Formulário admin escondido inicialmente -->
-            <form id="admin-login" action="{{ url_for('login') }}" method="POST" style="display: none; margin-top: 20px;">
-                <input type="hidden" name="user_type" value="admin">
-                <input type="text" name="username" placeholder="Usuário" required style="margin-bottom: 10px; padding: 10px; width: 80%;">
-                <input type="password" name="password" placeholder="Senha" required style="margin-bottom: 10px; padding: 10px; width: 80%;">
-                <button type="submit" class="btn-link">Login Admin</button>
-            </form>
-        </div>
+        <form action="{{ url_for('login') }}" method="POST" class="form">
+            <div class="select-user">
+                <label>
+                    <input type="radio" name="user_type" value="visitor" checked>
+                    Visitante
+                </label>
+                <label>
+                    <input type="radio" name="user_type" value="admin">
+                    Admin
+                </label>
+            </div>
+            <div id="admin-fields" class="admin-fields">
+                <input type="text" name="username" placeholder="Usuário" autocomplete="username">
+                <div class="password-wrapper">
+                    <input type="password" name="password" id="password" placeholder="Senha" autocomplete="current-password">
+                    <span class="toggle-password" onclick="togglePassword()">
+                        <img src="/static/imagens/eye.svg" id="eye-icon" alt="Mostrar senha">
+                    </span>
+                </div>
+            </div>
+            <button type="submit" class="btn-link">Entrar</button>
+        </form>
     </div>
+    <script src="/static/js/login.js"></script>
 </body>
 </html>
