@@ -1,4 +1,3 @@
-<!-- templates/debug.html -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,24 +10,28 @@
     <h1>Receitas no Banco de Dados</h1>
     {% if receitas %}
         <table>
-        <tr>
-            <td data-label="ID">{{ receita.id }}</td>
-            <td data-label="Nome">{{ receita.nome }}</td>
-            <td data-label="Tipo">{{ receita.tipo }}</td>
-            <td data-label="Origem">{{ receita.origem }}</td>
-            <td data-label="Ingredientes">{{ receita.ingredientes }}</td>
-            <td data-label="Modo de Preparo">{{ receita.modo_preparo }}</td>
-        </tr>
-            {% for receita in receitas %}
-            <tr>
-                <td>{{ receita.id }}</td>
-                <td>{{ receita.nome }}</td>
-                <td>{{ receita.tipo }}</td>
-                <td>{{ receita.origem }}</td>
-                <td>{{ receita.ingredientes }}</td>
-                <td>{{ receita.modo_preparo }}</td>
-            </tr>
-            {% endfor %}
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Tipo</th>
+                    <th>Origem</th>
+                    <th>Ingredientes</th>
+                    <th>Modo de Preparo</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for receita in receitas %}
+                <tr>
+                    <td>{{ receita.id }}</td>
+                    <td>{{ receita.nome }}</td>
+                    <td>{{ receita.tipo }}</td>
+                    <td>{{ receita.origem }}</td>
+                    <td>{{ receita.ingredientes }}</td>
+                    <td>{{ receita.modo_preparo }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
         </table>
     {% else %}
         <p>Nenhuma receita cadastrada.</p>
