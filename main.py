@@ -149,9 +149,11 @@ def atualizar(id):
     return render_template("atualizar.html", receita=receita)
 
 @app.route("/debug")
+@login_required
 def debug_dados():
     receitas = Receita.query.all()
     return render_template("debug.html", receitas=receitas)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
