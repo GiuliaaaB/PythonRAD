@@ -1,40 +1,34 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="/static/css/debug.css">
-    <link rel="shortcut icon" href="/static/imagens/bancodedados.svg" type="image/x-icon" />
-    <title>Banco de Dados</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Receitas no Banco de Dados</title>
+<link rel="stylesheet" href="/static/css/debug.css">
 </head>
 <body>
-    <h1>Receitas no Banco de Dados</h1>
-    {% if receitas %}
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Tipo</th>
-                    <th>Origem</th>
-                    <th>Ingredientes</th>
-                    <th>Modo de Preparo</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for receita in receitas %}
-                <tr>
-                    <td>{{ receita.id }}</td>
-                    <td>{{ receita.nome }}</td>
-                    <td>{{ receita.tipo }}</td>
-                    <td>{{ receita.origem }}</td>
-                    <td>{{ receita.ingredientes }}</td>
-                    <td>{{ receita.modo_preparo }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    {% else %}
-        <p>Nenhuma receita cadastrada.</p>
-    {% endif %}
+<h1 class="titulo">Receitas no Banco de Dados</h1>
+{% if receitas %}
+<section class="receitas-lista">
+    {% for receita in receitas %}
+    <div class="mini-card">
+    <div class="linha">
+        <div><strong>ID:</strong> {{ receita.id }}</div>
+        <div><strong>Nome do Prato:</strong> {{ receita.nome }}</div>
+    </div>
+    <div class="linha">
+        <div><strong>Tipo:</strong> {{ receita.tipo }}</div>
+        <div><strong>Origem:</strong> {{ receita.origem }}</div>
+    </div>
+    <div class="linha">
+        <div><strong>Ingredientes:</strong> {{ receita.ingredientes }}</div>
+        <div><strong>Modo de Preparo:</strong> {{ receita.modo_preparo }}</div>
+    </div>
+</div>
+{% endfor %}
+</section>
+{% else %}
+<p class="nenhuma-receita">Nenhuma receita cadastrada.</p>
+{% endif %}
 </body>
 </html>
