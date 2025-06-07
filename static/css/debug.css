@@ -2,120 +2,80 @@ body {
     background: #fff2eb;
     font-family: 'Roboto', sans-serif;
     color: #000;
-    text-align: center;
     padding: 20px;
     margin: 0;
 }
 
 .titulo {
-    margin-bottom: 30px;
-    font-size: 2.2rem;
+    font-size: 2.4rem;
+    color: #ff4d6d;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.receitas-lista {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.mini-card {
+    background: #ffffff;
+    width: 100%;
+    max-width: 900px;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.linha {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-bottom: 1px solid #ffe0e6;
+    padding: 12px 0;
+}
+
+.linha:last-of-type {
+    border-bottom: none;
+}
+
+.linha div {
+    width: 48%;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    text-align: left;
+}
+
+strong {
     color: #ff4d6d;
 }
 
-.tabela-container {
-    overflow-x: auto;
+@media (max-width: 600px) {
+.titulo {
+    font-size: 2.1rem;
 }
 
-table {
+.linha {
+    flex-direction: column;
+}
+
+.linha div {
     width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-    border-collapse: collapse;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+    font-size: 1.3rem;
+    margin-bottom: 8px;
 }
 
-th, td {
-    padding: 16px 20px;
-    border-bottom: 1px solid #ffe0e6;
-    text-align: left;
-    font-size: 1rem;
-}
-
-th {
-    background-color: #ff4d6d;
-    color: white;
-    font-weight: 600;
-}
-
-tr:nth-child(even) {
-    background-color: #fff7f9;
-}
-
-tr:hover {
-    background-color: #ffeef1;
-    transition: background-color 0.3s ease;
+.mini-card {
+        padding: 20px;
+        width: 95%;
+    }
 }
 
 .nenhuma-receita {
-    margin-top: 50px;
+    text-align: center;
+    font-size: 1.3rem;
     color: #ff4d6d;
-    font-size: 1.4rem;
-    font-weight: bold;
-}
-
-@media (max-width: 768px) {
-    table, thead, tbody, th, td, tr {
-        display: block;
-    }
-
-    thead {
-        display: none;
-    }
-
-    tr {
-        background: #fff;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        margin-bottom: 20px;
-        padding: 20px;
-    }
-
-    td {
-        border: none;
-        position: relative;
-        padding: 12px 20px 12px 50%;
-        text-align: left;
-        border-bottom: 1px solid #ffe0e6;
-        font-size: 1rem;
-    }
-
-    td::before {
-        position: absolute;
-        top: 12px;
-        left: 20px;
-        width: 45%;
-        padding-right: 10px;
-        white-space: nowrap;
-        font-weight: bold;
-        color: #ff4d6d;
-        content: attr(data-label);
-        font-size: 1rem;
-    }
-
-    td:last-child {
-        border-bottom: none;
-    }
-
-    .titulo {
-        font-size: 2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .titulo {
-        font-size: 1.8rem;
-    }
-
-    td {
-        padding: 14px 20px 14px 50%;
-        font-size: 1.05rem;
-    }
-
-    td::before {
-        font-size: 1.05rem;
-    }
+    margin-top: 30px;
 }
